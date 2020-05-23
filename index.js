@@ -1,13 +1,15 @@
 const express = require('express');
-// const { auth } = require('./auth');     TBA with authentication
+const app = express();
 const mysql = require('mysql');
 require('dotenv').config();
 
-const app = express();
 app.use(express.json());
 
-// Create database connection
+// Routes
 
+
+
+// Create database connection
 const connection = mysql.createConnection({
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
