@@ -6,7 +6,9 @@ require('dotenv').config();
 app.use(express.json());
 
 // Routes
+const questionsRoute = require('./routes/questions');
 
+app.use('/questions', questionsRoute);
 
 
 // Create database connection
