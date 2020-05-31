@@ -23,11 +23,15 @@ router.get('/multiplication/:number', async (req, res) => {
 
                 questions.push(question[0]);
             }
+
+            // Add id to questions (can be randomly sorted in frontend; store as an array in one row; is used to identify answer to specific question)
+            // STORE QUESTIONS IN DATABASE WITH UNIQUE "testId"
+
             
             res.status(200).send({ multiplier, questions })
 
         } else {
-            res.status(400).send({msg: "Please submit a multiplier value between the range of 2 to 13."})
+            res.status(400).send({msg: "Please submit a multiplier value between the range of 2 to 12."})
         }
         
     } catch (err) {

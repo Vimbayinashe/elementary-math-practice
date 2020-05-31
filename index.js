@@ -7,8 +7,10 @@ app.use(express.json());
 
 // Routes
 const questionsRoute = require('./routes/questions');
+const answersRoute = require('./routes/answers');
 
 app.use('/questions', questionsRoute);
+app.use('/answers', answersRoute);
 
 
 // Create database connection
