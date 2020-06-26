@@ -17,11 +17,15 @@ app.use('/answers', answersRoute);
 const connection = mysql.createConnection({
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
-    password: process.env.DB_PASS
+    password: process.env.DB_PASS,
+    database: 'maths'
 });
   
 connection.connect(function(err) {
-    if (err) throw err;
+    // if (err) throw err;
+    if (err) {
+        return console.error('error: ', err.message);
+    }
     console.log("Connected to MySQL!");
 
     // connection.query(sql, function (err, result) {
