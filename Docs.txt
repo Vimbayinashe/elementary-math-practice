@@ -1,0 +1,12 @@
+Example POST body:
+
+    {
+    "multiplier": 2,
+    "questions": [
+        {
+                "id": 2,
+                "qn": 5,
+                "ans": 10
+            }
+    ]
+    }
