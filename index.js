@@ -34,12 +34,13 @@ connection.connect(function(err) {
     // });
 });
 
-connection.end(function(err) {
-    if (err) {
-      return console.log('error:' + err.message);
-    }
-    console.log('Closed the database connection.');
-});
+/** You do not need to close mysql connection */
+// connection.end(function(err) {
+//     if (err) {
+//       return console.log('error:' + err.message);
+//     }
+//     console.log('Closed the database connection.');
+// });
 
 
 
