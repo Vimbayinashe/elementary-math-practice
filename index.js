@@ -14,14 +14,15 @@ app.use('/answers', answersRoute);
 
 
 // Create database connection
-const connection = mysql.createConnection({
+const pool = mysql.createPool({
+    connectionLimit: 10,
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
     password: process.env.DB_PASS,
     database: 'maths'
 });
   
-connection.connect(function(err) {
+pool.getConnection(function(err) {
     // if (err) throw err;
     if (err) {
         return console.error('error: ', err.message);
@@ -34,14 +35,19 @@ connection.connect(function(err) {
     // });
 });
 
-/** You do not need to close mysql connection */
-// connection.end(function(err) {
-//     if (err) {
-//       return console.log('error:' + err.message);
-//     }
-//     console.log('Closed the database connection.');
-// });
 
+/** Using connection 
+const connection = mysql.createConnection({
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASS
+});
+  
+connection.connect(function(err) {
+    if (err) throw err;
+    console.log("Connected to MySQL!");
+});
+ */
 
 
 
