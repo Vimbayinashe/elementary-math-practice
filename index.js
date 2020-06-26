@@ -34,6 +34,15 @@ connection.connect(function(err) {
     // });
 });
 
+connection.end(function(err) {
+    if (err) {
+      return console.log('error:' + err.message);
+    }
+    console.log('Closed the database connection.');
+});
+
+
+
 
 app.listen(3002, () => {
     console.log('Server running on port 3002');
