@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const mysql = require('mysql');
 require('dotenv').config();
+const config = require('./config');
 
 app.use(express.json());
 
@@ -14,13 +15,7 @@ app.use('/answers', answersRoute);
 
 
 // Create database connection
-const pool = mysql.createPool({
-    connectionLimit: 10,
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASS,
-    database: 'maths'
-});
+const pool = mysql.createPool(config);
   
 pool.getConnection(function(err) {
     // if (err) throw err;
