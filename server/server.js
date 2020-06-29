@@ -4,15 +4,6 @@ const mysql = require('mysql');
 require('dotenv').config();
 const config = require('./config');
 
-app.use(express.json());
-
-// Routes
-const questionsRoute = require('./routes/questions');
-const answersRoute = require('./routes/answers');
-
-app.use('/questions', questionsRoute);
-app.use('/answers', answersRoute);
-
 
 // Create database connection
 const pool = mysql.createPool(config);
@@ -31,18 +22,17 @@ pool.getConnection(function(err) {
 });
 
 
-/** Using connection 
-const connection = mysql.createConnection({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASS
-});
-  
-connection.connect(function(err) {
-    if (err) throw err;
-    console.log("Connected to MySQL!");
-});
- */
+// Middleware
+app.use(express.json());
+
+
+// Routes
+const questionsRoute = require('./routes/questions');
+const answersRoute = require('./routes/answers');
+
+app.use('/questions', questionsRoute);
+app.use('/answers', answersRoute);
+
 
 
 

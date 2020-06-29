@@ -1,5 +1,7 @@
 const { Router } = require('express');
-const router = new Router;
+// const mysql = require('mysql');
+// const config = require('../config');
+const router = new Router();
 
 router.post('/multiplication', async (req, res) => {
     try {
