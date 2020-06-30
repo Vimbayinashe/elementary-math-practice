@@ -1,6 +1,7 @@
 Example POST body:
 
     {
+    "userId": 2,
     "multiplier": 2,
     "questions": [
         {

@@ -16,8 +16,8 @@ const createTable = `CREATE TABLE IF NOT EXISTS results (
     questions int(2));`;
 
     
-    router.post('/multiplication', async (req, res) => {
-        try {
+router.post('/multiplication', async (req, res) => {
+    try {
             
         console.log(req.body)
         
@@ -28,10 +28,28 @@ const createTable = `CREATE TABLE IF NOT EXISTS results (
 
         let method = (req.route.path).slice(1);
         let multiplier = req.body.multiplier;
-        let totalQuestions = req.body.questions.length;
+        let totalQuestions = req.body.answers.length;
         let userId = req.body.userId;
+        let answers = req.body.answers;
+        let correct = 0;
 
-        const testData = `INSERT INTO results (userId, method, multiplier, correct_answers, questions) VALUES (${pool.escape(userId)}, '${method}', ${pool.escape(multiplier)}, 1, ${pool.escape(totalQuestions)});`;
+        function checkSubmission () {
+            answers.map(ans => {
+                if(ans.qn * multiplier === ans.ans) {
+                    correct++;
+                    return ans.correct = true;
+                } else {
+                    return ans.correct = false;
+                }
+            })
+        }
+
+        checkSubmission();
+  
+        let mark = Math.round(correct*100/totalQuestions) +"%";    
+
+
+        const testData = `INSERT INTO results (userId, method, multiplier, correct_answers, questions) VALUES (${pool.escape(userId)}, '${method}', ${pool.escape(multiplier)}, ${correct}, ${totalQuestions});`;
         
 
         pool.query(testData, (err, result) => {
@@ -42,9 +60,8 @@ const createTable = `CREATE TABLE IF NOT EXISTS results (
         });
 
 
-        res.status(200).send({ msg: 'Answers received' })
+        res.send({ correct, totalQuestions, mark, multiplier, answers })
 
-        // send back with id of submitted test (as added to database)?
 
     } catch (error) {
         console.log(error);
