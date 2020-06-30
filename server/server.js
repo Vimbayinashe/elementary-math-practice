@@ -9,16 +9,12 @@ const config = require('./config');
 const pool = mysql.createPool(config);
   
 pool.getConnection(function(err) {
-    // if (err) throw err;
+    
     if (err) {
         return console.error('error: ', err.message);
     }
     console.log("Connected to MySQL!");
 
-    // connection.query(sql, function (err, result) {
-    //     if (err) throw err;
-    //     console.log("Result: " + result);
-    // });
 });
 
 

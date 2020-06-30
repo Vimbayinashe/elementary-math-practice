@@ -18,13 +18,6 @@ const createTable = `CREATE TABLE IF NOT EXISTS results (
     
 router.post('/multiplication', async (req, res) => {
     try {
-            
-        console.log(req.body)
-        
-        pool.query(createTable, (err, result) => {
-            if (err) throw err;
-            console.log('Results table created!')
-        });
 
         let method = (req.route.path).slice(1);
         let multiplier = req.body.multiplier;
@@ -32,6 +25,13 @@ router.post('/multiplication', async (req, res) => {
         let userId = req.body.userId;
         let answers = req.body.answers;
         let correct = 0;
+        
+
+        pool.query(createTable, (err, result) => {
+            if (err) throw err;
+            console.log('Results table created!')
+        });
+
 
         function checkSubmission () {
             answers.map(ans => {
@@ -47,15 +47,19 @@ router.post('/multiplication', async (req, res) => {
         checkSubmission();
   
         let mark = Math.round(correct*100/totalQuestions) +"%";    
+        // console.log(result.insertId);    //submitted test result's id  
 
 
-        const testData = `INSERT INTO results (userId, method, multiplier, correct_answers, questions) VALUES (${pool.escape(userId)}, '${method}', ${pool.escape(multiplier)}, ${correct}, ${totalQuestions});`;
+        const testData = 
+            `INSERT INTO results (
+                userId, method, multiplier, correct_answers, questions) 
+            VALUES (
+                ${pool.escape(userId)}, '${method}', ${pool.escape(multiplier)},
+                ${correct}, ${totalQuestions});`;
         
 
         pool.query(testData, (err, result) => {
             if (err) throw err;
-            console.log(req._parsedUrl.path);
-            // console.log(result.insertId);    //submitted test result's id  
             console.log('Test data added!')
         });
 
