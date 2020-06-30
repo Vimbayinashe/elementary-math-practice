@@ -29,8 +29,9 @@ const createTable = `CREATE TABLE IF NOT EXISTS results (
         let method = (req.route.path).slice(1);
         let multiplier = req.body.multiplier;
         let totalQuestions = req.body.questions.length;
+        let userId = req.body.userId;
 
-        const testData = `INSERT INTO results (userId, method, multiplier, correct_answers, questions) VALUES (1, '${method}', ${pool.escape(multiplier)}, 1, ${pool.escape(totalQuestions)});`;
+        const testData = `INSERT INTO results (userId, method, multiplier, correct_answers, questions) VALUES (${pool.escape(userId)}, '${method}', ${pool.escape(multiplier)}, 1, ${pool.escape(totalQuestions)});`;
         
 
         pool.query(testData, (err, result) => {
