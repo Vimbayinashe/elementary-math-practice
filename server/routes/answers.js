@@ -15,20 +15,28 @@ const createTable = `CREATE TABLE IF NOT EXISTS results (
     correct_answers int(2),
     questions int(2));`;
 
-const testData = `INSERT INTO results (userId, method, multiplier, correct_answers, questions) VALUES (1, 'multiplication', 2, 10, 10);`;
-
-router.post('/multiplication', async (req, res) => {
-    try {
-        
+    
+    router.post('/multiplication', async (req, res) => {
+        try {
+            
         console.log(req.body)
-
+        
         pool.query(createTable, (err, result) => {
             if (err) throw err;
             console.log('Results table created!')
         });
 
+        let method = (req.route.path).slice(1);
+        let multiplier = req.body.multiplier;
+        let totalQuestions = req.body.questions.length;
+
+        const testData = `INSERT INTO results (userId, method, multiplier, correct_answers, questions) VALUES (1, '${method}', ${pool.escape(multiplier)}, 1, ${pool.escape(totalQuestions)});`;
+        
+
         pool.query(testData, (err, result) => {
             if (err) throw err;
+            console.log(req._parsedUrl.path);
+            // console.log(result.insertId);    //submitted test result's id  
             console.log('Test data added!')
         });
 
