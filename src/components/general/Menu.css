@@ -1,0 +1,49 @@
+
+.menu {
+    background-color: snow;
+    z-index: 1;
+}
+
+.hamburger {
+    margin: 1em 0.5em;
+}
+
+.menu ul {
+    list-style-type: none;
+
+}
+
+.menu li {
+    color: black;
+    margin: 0.2em 0.75em;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.menu li:hover {
+    color: rgb(11, 122, 22);
+}
+
+.hamburger div
+{
+  width: 1.1em;
+  height: 0.15em;
+  background-color: black;
+  margin: 0.2em 0;
+
+  border-radius: 3px;
+  z-index: 1;
+  transform-origin: 4px 0px;
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              opacity 0.55s ease;
+}
+
+.dropdown-menu {
+    margin-bottom:0.6em;
+}
+
+.hidden {
+    visibility: hidden;
+}
