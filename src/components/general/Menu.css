@@ -1,49 +1,73 @@
-
+/* 
 .menu {
-    background-color: snow;
+    display: block;
     z-index: 1;
-}
+} */
 
 .hamburger {
     margin: 1em 0.5em;
 }
 
-.menu ul {
+.hamburger div, .hamburger.clicked div {
+    width: 1.1em;
+    height: 0.15em;
+    background-color: black;
+    margin: 0.2em 0;
+    border-radius: 3px;
+    transition: 0.5s;
+}
+
+/* Cancel button */
+.hamburger.clicked .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.hamburger.clicked .bar2 {
+    opacity: 0;
+}
+
+.hamburger.clicked .bar3 {
+  -webkit-transform: rotate(45deg) translate(-8px, -8px);
+  transform: rotate(45deg) translate(-8px, -8px);
+}
+
+
+.hamburger.clicked {
+
+    position: relative;
+    top: 3em;
+    left: 2em;
+}
+
+
+.dropdown-menu {
+    background-color: snow;
     list-style-type: none;
-
+    margin-bottom:0.6em;
+    position: relative;
+    top: 3em;
 }
 
-.menu li {
-    color: black;
-    margin: 0.2em 0.75em;
-    font-weight: 600;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.menu li:hover {
+.dropdown-menu li:hover {
     color: rgb(11, 122, 22);
 }
 
-.hamburger div
-{
-  width: 1.1em;
-  height: 0.15em;
-  background-color: black;
-  margin: 0.2em 0;
 
-  border-radius: 3px;
-  z-index: 1;
-  transform-origin: 4px 0px;
-  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
-              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
-              opacity 0.55s ease;
+/* .dropdown-menu {
+    margin: 0.2em;
+} */
+
+.dropdown-menu li {
+    color: black;
+    margin: 0.2em 0.25em;
+    padding: 0 0.5em;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    border-bottom: rgb(184, 173, 173) 0.5px solid;
 }
 
-.dropdown-menu {
-    margin-bottom:0.6em;
-}
-
-.hidden {
-    visibility: hidden;
+.dropdown-menu li:last-child {
+    border: none;
 }

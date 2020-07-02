@@ -1,22 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "./Menu.css";
 
 
 const Menu = () => {
 
+    const [touched, setTouched] = useState(false);
+
     return(
         <div className="menu">
-            <div className ="hamburger">
-                <div></div>
-                <div></div>
-                <div></div>
+            {/* <div className ="hamburger" */}
+            <div className ={touched ? "hamburger clicked" : "hamburger"}
+                onClick={() => setTouched(!touched)}>
+                <div className="bar1"></div>
+                <div className="bar2"></div>
+                <div className="bar3"></div>
             </div>
-            <ul className="dropdown-menu">
-                <li>Home</li>
-                <li>Play</li>
-                <li>Profile</li>
-                <li>Login</li>
-            </ul>
+            {
+                touched ? 
+                <ul className="dropdown-menu">
+                    <li>Home</li>
+                    <li>Play</li>
+                    <li>Profile</li>
+                    <li>Login</li>
+                </ul>
+                : ''
+            }
         </div>
     )
 }
