@@ -1,14 +1,11 @@
 import React from 'react';
 import './App.css';
-import Menu from './components/general/Menu';
+import Header from './components/home/Header';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <Menu />
-        <h1>Maths App</h1>
-      </header>
+        <Header />
     </div>
   );
 }
