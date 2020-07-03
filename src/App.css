@@ -27,6 +27,25 @@
 }
 
 
+/* style Home page button */
+.home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.home>p {
+    margin: 2em 1em 4em;
+}
+
+.play {
+    font-size: 1.5em;
+    height: 5em;
+
+    width: 8em;
+
+}
 
 
 
