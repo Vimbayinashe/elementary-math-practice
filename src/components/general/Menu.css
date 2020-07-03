@@ -1,15 +1,22 @@
-/* 
-.menu {
-    display: block;
-    z-index: 1;
-} */
+
+.menu.clicked {
+    background-color: white;
+    box-shadow: 2px 3px 12px 1px rgba(0,0,0,0.51);
+    margin-right: 0;
+    height: 13em;
+    width: 6.5em;
+    position: relative;
+    top: 1.5em;
+    right: 0.5em;
+}
 
 .hamburger {
+    cursor: pointer;
     margin: 1em 0.5em;
 }
 
 .hamburger div, .hamburger.clicked div {
-    width: 1.1em;
+    width: 1.4em;
     height: 0.15em;
     background-color: black;
     margin: 0.2em 0;
@@ -17,10 +24,18 @@
     transition: 0.5s;
 }
 
+.hamburger.clicked div {
+    width: 1.2em;
+    height: 0.1em;
+    background-color: black;
+    margin: 0.2em 0;
+    transition: 0.5s;
+}
+
 /* Cancel button */
 .hamburger.clicked .bar1 {
-    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
-    transform: rotate(-45deg) translate(-9px, 6px);
+    -webkit-transform: rotate(-45deg) translate(-8px, 8px);
+    transform: rotate(-45deg) translate(-8px, 8px);
 }
 
 .hamburger.clicked .bar2 {
@@ -29,20 +44,18 @@
 
 .hamburger.clicked .bar3 {
   -webkit-transform: rotate(45deg) translate(-8px, -8px);
-  transform: rotate(45deg) translate(-8px, -8px);
+  transform: rotate(45deg) translate(-4px, -4px);
 }
 
 
 .hamburger.clicked {
-
     position: relative;
-    top: 3em;
-    left: 2em;
+    top: 3.2em;
+    left: 4em;
 }
 
 
 .dropdown-menu {
-    background-color: snow;
     list-style-type: none;
     margin-bottom:0.6em;
     position: relative;
@@ -51,23 +64,46 @@
 
 .dropdown-menu li:hover {
     color: rgb(11, 122, 22);
+    background-color: rgb(214, 248, 214);
 }
 
-
-/* .dropdown-menu {
-    margin: 0.2em;
-} */
 
 .dropdown-menu li {
     color: black;
     margin: 0.2em 0.25em;
-    padding: 0 0.5em;
+    padding: 0.1em 1em;
     font-weight: 600;
     text-decoration: none;
     transition: color 0.3s ease;
     border-bottom: rgb(184, 173, 173) 0.5px solid;
+    cursor: pointer;
 }
 
 .dropdown-menu li:last-child {
     border: none;
+    padding-bottom: 0.3em;
 }
+
+
+
+
+@media (max-width:800px) {
+
+    .hamburger.clicked .bar1 {
+        /* -webkit-transform: rotate(-45deg) translate(-6px, 6px); */
+        transform: rotate(-45deg) translate(-6px, 6px);
+    }
+    
+    .hamburger.clicked .bar2 {
+        opacity: 0;
+    }
+    
+    .hamburger.clicked .bar3 {
+      /* -webkit-transform: rotate(45deg) translate(-2px, -2px); */
+      transform: rotate(45deg) translate(-2px, -2px);
+    }
+
+}
+
+
+/*  */

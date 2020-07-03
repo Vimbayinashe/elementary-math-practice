@@ -7,7 +7,7 @@ const Menu = () => {
     const [touched, setTouched] = useState(false);
 
     return(
-        <div className="menu">
+        <div className={touched ? "menu clicked" : "menu"}>
             {/* <div className ="hamburger" */}
             <div className ={touched ? "hamburger clicked" : "hamburger"}
                 onClick={() => setTouched(!touched)}>
