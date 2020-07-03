@@ -60,6 +60,11 @@
     margin-bottom:0.6em;
     position: relative;
     top: 3em;
+    transition: 2s;
+}
+
+.dropdown-menu.clicked {
+    
 }
 
 .dropdown-menu li:hover {
@@ -90,7 +95,7 @@
 @media (max-width:800px) {
 
     .hamburger.clicked .bar1 {
-        /* -webkit-transform: rotate(-45deg) translate(-6px, 6px); */
+        -webkit-transform: rotate(-45deg) translate(-6px, 6px);
         transform: rotate(-45deg) translate(-6px, 6px);
     }
     
@@ -99,7 +104,7 @@
     }
     
     .hamburger.clicked .bar3 {
-      /* -webkit-transform: rotate(45deg) translate(-2px, -2px); */
+      -webkit-transform: rotate(45deg) translate(-2px, -2px);
       transform: rotate(45deg) translate(-2px, -2px);
     }
 
