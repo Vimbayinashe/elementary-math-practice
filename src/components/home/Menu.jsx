@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link, NavLink } from 'react-router-dom';
 import "./Menu.css";
 
 
@@ -18,8 +19,8 @@ const Menu = () => {
             {
                 touched ? 
                 <ul className="dropdown-menu">
-                    <li>Home</li>
-                    <li>Play</li>
+                    <li><Link to="/">Home</Link></li>
+                    <li><NavLink to ="/game">Play</NavLink></li>
                     <li>Profile</li>
                     <li>Login</li>
                 </ul>

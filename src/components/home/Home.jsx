@@ -1,10 +1,19 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
+
 
 
 const Home = () => {
 
+    const history = useHistory();
+
+    let renderRedirect = () => {
+        console.log('Play button licked!!');
+        return history.push(`/game`);
+    }
+
     return(
-        <main className="home">
+        <section className="home">
             <p>Play and train yourself to become a pro at Maths Master!</p>
 
             <div className="buttons">
@@ -26,9 +35,12 @@ const Home = () => {
                 </div>
             </div>
 
-            <button className="play">Play</button>
+            <button className="play"
+                onClick={renderRedirect}>
+                Play
+            </button>
 
-        </main>
+        </section>
     )
 }
 
