@@ -4,7 +4,8 @@ import './Level.css';
 const Level = () => {
 
     const [level, setLevel] = useState('');
-
+    console.log(level);
+    
 
     let numbers = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
@@ -13,7 +14,7 @@ const Level = () => {
 
     return(
         <section>
-            <h3>Choose Level</h3>
+            <h2>Choose Level</h2>
 
             <article className="level-buttons">
                 {JSXList}

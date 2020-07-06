@@ -1,11 +1,59 @@
-.swipe-level button {
-    /* display: inline-block; */
-    /* flex-direction: row; */
-    width: 2em;
-    height: 2em;
+.level-buttons {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    gap: 1em;
+    grid-row-gap: 1.5em;
+    margin: 1em 4em;
 }
 
-.swipe-level div {
+.level-buttons button {
+    font-size: 2em;
     font-weight: 600;
-    height: 4em;
+    height: 2.5em;
+    width: 2.5em;
 }
+
+
+
+
+
+
+
+
+/* Media Queries */
+
+
+@media (max-width:480px) {
+
+    .level-buttons {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        gap: 0.8em;
+        grid-row-gap: 1em;
+        margin: 1em 4em;
+    }
+
+    
+}
+
+@media (max-width:400px) {
+
+    .level-buttons {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        gap: 0.8em;
+        grid-row-gap: 1em;
+        margin: 1em 3em;
+    }
+
+    .level-buttons button {
+        font-size: 1.8em;
+        font-weight: 600;
+        height: 2.25em;
+        width: 2.25em;
+    }
+    
+}
+
+/*  */
+
