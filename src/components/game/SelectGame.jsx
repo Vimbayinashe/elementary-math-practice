@@ -1,4 +1,5 @@
 import React from 'react';
+import Level from './Level';
 
 const SelectGame = () => {
 
@@ -24,6 +25,8 @@ const SelectGame = () => {
                     <p>Division</p>
                 </div>
             </div>
+
+            <Level />
 
         </section>
     )
