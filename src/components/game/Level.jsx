@@ -1,14 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactSwipe from 'react-swipe';
 import './Level.css';
 
 const Level = () => {
 
+    const [level, setLevel] = useState('');
+
     let reactSwipeEl;
+
+    let numbers = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+
+    let JSXList = numbers.map( number => (<button onClick={()=>setLevel(number)}> { number } </button>))
 
     return(
         <section>
-            <h3>Hi Swipe!</h3>
+            <h3>Choose Level</h3>
             <div className = "swipe-level">
                 <ReactSwipe
                     className="carousel"
@@ -23,8 +29,9 @@ const Level = () => {
                 <button onClick={ () => reactSwipeEl.next()}>&gt;</button>
             </div>
 
-            <article>
-                
+            <article className="level-buttons">
+                {JSXList}
+
             </article>
         </section>
     )
