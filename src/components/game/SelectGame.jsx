@@ -13,11 +13,11 @@ const SelectGame = () => {
             
             <div className="buttons">
                 <div className="selected" onClick={() => setGameMethod("addition")}>
-                    <button>+</button>
+                    <button disabled>+</button>
                     <p>Addition</p>
                 </div>
                 <div onClick={() => setGameMethod("subtraction")}>
-                    <button>-</button>
+                    <button disabled>-</button>
                     <p>Subtraction</p>
                 </div>
                 <div onClick={() => setGameMethod("multiplication")}>
@@ -25,7 +25,7 @@ const SelectGame = () => {
                     <p>Multiplication</p>
                 </div>
                 <div onClick={() => setGameMethod("division")}>
-                    <button>&divide;</button>
+                    <button disabled>&divide;</button>
                     <p>Division</p>
                 </div>
             </div>
