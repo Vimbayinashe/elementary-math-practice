@@ -1,8 +1,15 @@
 import React from 'react';
 import Level from './Level';
+import { useHistory } from 'react-router-dom';
+
 
 const SelectGame = ({ level, setLevel, gameMethod, setGameMethod }) => {
-    
+
+    const history = useHistory();
+
+    let renderRedirect = () => {
+        return history.push(`/play`);
+    }
 
     return(
         <section>
@@ -28,6 +35,14 @@ const SelectGame = ({ level, setLevel, gameMethod, setGameMethod }) => {
             </div>
 
             <Level level={level} setLevel={setLevel} />
+
+            <div className="start">
+
+                <button 
+                    onClick={renderRedirect}>
+                    Start
+                </button>
+            </div>
 
         </section>
     )
