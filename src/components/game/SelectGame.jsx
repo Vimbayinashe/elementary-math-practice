@@ -1,10 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Level from './Level';
 
-const SelectGame = () => {
-
-    const [gameMethod, setGameMethod] = useState('');
-    console.log(gameMethod);
+const SelectGame = ({ level, setLevel, gameMethod, setGameMethod }) => {
     
 
     return(
@@ -30,7 +27,7 @@ const SelectGame = () => {
                 </div>
             </div>
 
-            <Level />
+            <Level level={level} setLevel={setLevel} />
 
         </section>
     )

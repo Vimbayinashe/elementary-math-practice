@@ -1,11 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Level.css';
 
-const Level = () => {
-
-    const [level, setLevel] = useState('');
-    console.log(level);
-    
+const Level = ({ level, setLevel }) => {
+   
 
     let numbers = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
