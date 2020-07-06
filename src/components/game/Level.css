@@ -1,0 +1,11 @@
+.swipe-level button {
+    /* display: inline-block; */
+    /* flex-direction: row; */
+    width: 2em;
+    height: 2em;
+}
+
+.swipe-level div {
+    font-weight: 600;
+    height: 4em;
+}
