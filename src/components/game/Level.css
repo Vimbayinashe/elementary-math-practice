@@ -7,13 +7,21 @@
 }
 
 .level-buttons button {
+    border: solid 5px rgb(59, 148, 59);
+    border-radius: 10px;
     font-size: 2em;
     font-weight: 600;
     height: 2.5em;
     width: 2.5em;
 }
 
-
+.level-buttons button:focus {
+    background-color: rgb(85, 212, 98);
+    color: maroon;
+    /* font-size: 1.85em; */
+    /* height: 2.4em; */
+    /* width: 2.5em;  */
+}
 
 
 

@@ -47,23 +47,35 @@
 }
 
 .buttons button {
+    border: solid 3px rgb(59, 148, 59);
     font-size: 2em;
     font-weight: 700;
     height: 2em;
     width: 2em;
 }
 
+.buttons button:focus {
+    border: solid 4px maroon;
+    border-radius: 2px;
+}
+
 .buttons div {
-    background-color: magenta;
+    background-color: rgb(85, 212, 98);
     display: flex;
     flex-direction: row;
     
 }
 
+/* div.selected {
+    background-color: chocolate;
+    font-weight: 600;
+} */
+
 .buttons p {
     padding: 1.2em  0.7em 1em;
     vertical-align: middle;
 }
+
 
 .play {
 

@@ -12,7 +12,7 @@ const SelectGame = () => {
             <h2>Select Game</h2>
             
             <div className="buttons">
-                <div onClick={() => setGameMethod("addition")}>
+                <div className="selected" onClick={() => setGameMethod("addition")}>
                     <button>+</button>
                     <p>Addition</p>
                 </div>
