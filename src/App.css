@@ -112,39 +112,30 @@ h2, h3 {
     }
     
     .buttons div {
-        /* background-color: magenta;
-        display: flex;
-        flex-direction: row; */
         max-width: 40vw;
     }
     
     .buttons p {
         padding: 0.8em  0.5em;
-        /* vertical-align: middle; */
     }
 
 }
 
 
 @media (max-width:350px) {
+
+    .App-header{
+        font-size: 1em;
+    }
+
+
     .buttons button {
         font-size: 1.3em;
-        /* font-weight: 600; */
-        /* height: 2em;
-        width: 2em; */
-    }
-    
-    .buttons div {
-        /* background-color: magenta;
-        display: flex;
-        flex-direction: row; */
-        /* max-width: 40vw; */
     }
     
     .buttons p {
         font-size: 0.9em;
         padding: 0.8em  0.4em;
-        /* vertical-align: middle; */
     }
 }
 
