@@ -39,6 +39,7 @@ const SelectGame = ({ level, setLevel, gameMethod, setGameMethod }) => {
             <div className="start">
 
                 <button 
+                    disabled={!level || !gameMethod}
                     onClick={renderRedirect}>
                     Start
                 </button>

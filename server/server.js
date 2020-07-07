@@ -3,6 +3,7 @@ const app = express();
 const mysql = require('mysql');
 require('dotenv').config();
 const config = require('./config');
+const path = require('path');
 
 
 // Create database connection
@@ -18,8 +19,12 @@ pool.getConnection(function(err) {
 });
 
 
+// serve frontend
+app.use(express.static(__dirname + '/../build'))
+
 // Middleware
 app.use(express.json());
+
 
 
 // Routes
@@ -30,8 +35,15 @@ app.use('/questions', questionsRoute);
 app.use('/answers', answersRoute);
 
 
+// resolve 'Cannot GET ...' error messages
+app.get('/*', (req,res) =>{
+    res.sendFile(path.join(__dirname + '/../build/index.html'));
+});
 
 
-app.listen(3002, () => {
-    console.log('Server running on port 3002');
+const port = process.env.PORT || 3002;
+
+
+app.listen(port, () => {
+    console.log('Server running on port ', port);
 })
