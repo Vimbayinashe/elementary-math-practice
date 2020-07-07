@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Header from './components/home/Header';
 import Home from './components/home/Home';
 import SelectGame from './components/game/SelectGame';
+import Play from './components/game/Play';
 
 function App() {
 
@@ -27,6 +28,11 @@ function App() {
                     setGameMethod={setGameMethod}
                     level={level}
                     setLevel={setLevel}/>
+            </Route>
+
+            <Route path="/play">
+                <Play gameMethod={gameMethod} 
+                    level={level}/>
             </Route>
 
             <Route exact path="/">
