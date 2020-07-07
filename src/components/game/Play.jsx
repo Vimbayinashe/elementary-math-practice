@@ -12,7 +12,7 @@ const Play = ({ gameMethod, level }) => {
         return history.push(`/game`);
     }
     
-    let url = `http://localhost:3002/questions/${gameMethod}/${level}`;
+    let url = `/questions/${gameMethod}/${level}`;
 
     useEffect(() =>{
         console.log('fetching in Play');
@@ -22,11 +22,11 @@ const Play = ({ gameMethod, level }) => {
             try {
                 const response = await fetch(url);
                 const json = await response.json();
+                console.log(json);
 
-                if (json) setQuestions(json);
+                setQuestions(json);
 
                 console.log("questions:");
-                console.log(json);
                 
                 return json;
 
@@ -44,9 +44,9 @@ const Play = ({ gameMethod, level }) => {
 
     return(
         <section>
-            {
+            {/* {
                 (gameMethod && level) ? '' : renderRedirect()
-            }
+            } */}
             <h2>Play</h2>
             <p>Method: { gameMethod } and level: {level}.</p>
             <p>{questions}</p>
