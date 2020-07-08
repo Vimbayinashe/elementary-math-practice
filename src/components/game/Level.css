@@ -47,7 +47,7 @@
 }
 
 .questions {
-    background-color: lightsalmon ;
+    /* background-color: lightsalmon ; */
     font-size: 2em;
     margin: auto;
     padding: 0.5em;
@@ -59,9 +59,9 @@
     border-radius: 10px;
     font-size: 1.5em;
     /* font-weight: 600; */
-    height: 2em;
+    height: 2.5em;
     padding: 0.5em;
-    margin: 1.5em;
+    margin: 2em;
     width: 5em;
 }
 

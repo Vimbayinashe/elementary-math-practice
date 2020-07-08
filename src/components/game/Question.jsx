@@ -1,24 +1,31 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 
 const Question = ({ qn, multiplier, setAnswer}) => {
 
-    let answers = [
-        multiplier * qn ,
-        multiplier * (qn - 1),
-        multiplier * (qn + 2),
-        multiplier * (qn + 1) 
-    ]
 
-    useEffect(() => {
-        shuffleArray(answers);
-    })
+    let sortedAnswers = React.useMemo(() => {
 
-    let JSXList = answers.map( (ans, index) => (
+        let answers = [
+                multiplier * qn ,
+                multiplier * (qn - 1),
+                multiplier * (qn + 2),
+                multiplier * (qn + 1) 
+            ]
+
+        return shuffleArray(answers)
+
+    }, [multiplier, qn])
+
+    // useEffect(() => {
+    //     shuffleArray(answers);
+    // })
+
+    let JSXList = sortedAnswers.map( (ans, index) => (
         <button key={index} onClick={()=>setAnswer(ans)}> 
             { ans } 
         </button>));
 
-    shuffleArray(JSXList);
+    // shuffleArray(JSXList);
 
 
     return(

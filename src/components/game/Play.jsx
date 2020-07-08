@@ -55,9 +55,9 @@ const Play = ({ gameMethod, level }) => {
         
     }, [url])
 
-    console.log("questions:");
-    console.log(questions);
-    console.log(multiplier);
+    // console.log("questions:");
+    // console.log(questions);
+    // console.log(multiplier);
 
     let errorMessage = multiplier ? '': 'We are currently having trouble loading your questions.'
 
