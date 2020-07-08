@@ -13,7 +13,7 @@ const Play = ({ gameMethod, level }) => {
     const [index, setIndex] = useState(0);
     const [answer, setAnswer] = useState("");
 
-    // console.log('Play: ', gameMethod, level);
+    console.log('answer: ', answer);
 
     let renderRedirect = () => {
         return history.push(`/game`);
@@ -23,8 +23,6 @@ const Play = ({ gameMethod, level }) => {
 
 
     useEffect(() =>{
-        // console.log('fetching in Play');
-
 
         let fetchQuestions = async () => {
 
@@ -32,11 +30,7 @@ const Play = ({ gameMethod, level }) => {
 
             try {
                 const response = await axios.get(url);
-                // console.log(response);
                 const data = await response.data;
-                // console.log(data);
-                // const json = await response.json();
-                // console.log(json);
 
                 setQuestions(data.questions);
                 setMultiplier(data.multiplier);
@@ -55,9 +49,6 @@ const Play = ({ gameMethod, level }) => {
         
     }, [gameMethod, level, url])
 
-    // console.log("questions:");
-    // console.log(questions);
-    // console.log(multiplier);
 
     let errorMessage = multiplier ? '': 'We are currently having trouble loading your questions.'
 
@@ -83,7 +74,6 @@ const Play = ({ gameMethod, level }) => {
                 </div>
             </div>
 
-            {/* <div className="answer-buttons"> */}
             <div className="navigation-buttons">
                 <button className={index>0 ? 'play-buttons' : 'hidden'} 
                     onClick={()=>setIndex(index-1)} >
@@ -93,7 +83,6 @@ const Play = ({ gameMethod, level }) => {
                     onClick={()=>setIndex(index+1)} >
                     Next
                 </button> 
-                  {/* index >= 9 ? index = 0 : index + 1 */}
             </div>
 
         </section>
