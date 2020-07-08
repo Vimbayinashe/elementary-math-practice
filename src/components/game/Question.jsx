@@ -1,30 +1,24 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 
 const Question = ({ qn, multiplier, setAnswer}) => {
 
-    const [answers, setAnswers] = useState('');
-    // useEffect(() => {
+    let answers = [
+        multiplier * qn ,
+        multiplier * (qn - 1),
+        multiplier * (qn + 2),
+        multiplier * (qn + 1) 
+    ]
 
-        let unshuffledAnswers = [
-            multiplier * qn ,
-            multiplier * (qn - 1),
-            multiplier * (qn + 2),
-            multiplier * (qn + 1) 
-        ]
-
-        shuffleArray(unshuffledAnswers);
-
-        setAnswers(unshuffledAnswers);
-
-    // }, [answers])
+    useEffect(() => {
+        shuffleArray(answers);
+    })
 
     let JSXList = answers.map( (ans, index) => (
         <button key={index} onClick={()=>setAnswer(ans)}> 
             { ans } 
         </button>));
 
-    // shuffleArray(JSXList);
-    
+    shuffleArray(JSXList);
 
 
     return(
