@@ -3,7 +3,7 @@ import React, { useEffect, useMemo } from 'react';
 const Question = ({ qn, multiplier, setAnswer}) => {
 
 
-    let sortedAnswers = React.useMemo(() => {
+    let sortedAnswers = useMemo(() => {
 
         let answers = [
                 multiplier * qn ,
