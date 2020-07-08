@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
  import { useHistory } from 'react-router-dom';
+ import axios from 'axios';
 
 const Play = ({ gameMethod, level }) => {
 
@@ -25,15 +26,16 @@ const Play = ({ gameMethod, level }) => {
             console.log(url);
 
             try {
-                const response = await fetch(url);
-                const json = await response.json();
-                console.log(json);
+                const response = await axios.get(url);
+                console.log(response);
+                // const json = await response.json();
+                // console.log(json);
 
-                setQuestions(json.questions);
-                setMultiplier(json.multiplier);
+                setQuestions(response.questions);
+                setMultiplier(response.multiplier);
 
                 
-                return json;
+                return response;
 
 
             } catch (error) {
