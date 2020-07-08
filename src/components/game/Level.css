@@ -28,6 +28,18 @@
     visibility: hidden;
 }
 
+/* Play component */
+.answer-buttons {
+    margin: 1em;
+}
+
+.questions {
+    background-color: lightsalmon ;
+    font-size: 2em;
+    margin: auto;
+    padding: 0.5em;
+    width: 10em;
+}
 
 
 

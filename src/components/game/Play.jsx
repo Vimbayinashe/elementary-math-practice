@@ -82,7 +82,7 @@ const Play = ({ gameMethod, level }) => {
                 </div>
             </div>
 
-            <div>
+            <div className="answer-buttons">
                 <button className={index>0 ? '' : 'hidden'} 
                     onClick={()=>setIndex(index-1)} >
                     Previous
