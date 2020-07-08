@@ -28,11 +28,13 @@ const Play = ({ gameMethod, level }) => {
             try {
                 const response = await axios.get(url);
                 console.log(response);
+                const data = await response.data;
+                console.log(data);
                 // const json = await response.json();
                 // console.log(json);
 
-                setQuestions(response.questions);
-                setMultiplier(response.multiplier);
+                setQuestions(data.questions);
+                setMultiplier(data.multiplier);
 
                 
                 return response;
