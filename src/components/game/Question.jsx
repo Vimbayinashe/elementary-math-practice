@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const Question = ({ qn, multiplier, setAnswer}) => {
 
     let answers = [
-        qn * multiplier ,
-        qn * (multiplier - 1),
-        qn * (multiplier + 2),
-        qn * (multiplier + 1) 
+        multiplier * qn ,
+        multiplier * (qn - 1),
+        multiplier * (qn + 2),
+        multiplier * (qn + 1) 
     ]
 
     shuffleArray(answers);
