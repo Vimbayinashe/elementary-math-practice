@@ -5,6 +5,7 @@ const Play = ({ gameMethod, level }) => {
 
     const history = useHistory();
     const [questions, setQuestions] = useState([]);
+    const [multiplier, setMultiplier] = useState('');
 
     console.log('Play: ', gameMethod, level);
 
@@ -29,8 +30,8 @@ const Play = ({ gameMethod, level }) => {
                 console.log(json);
 
                 setQuestions(json.questions);
+                setMultiplier(json.multiplier);
 
-                console.log("questions:");
                 
                 return json;
 
@@ -44,6 +45,11 @@ const Play = ({ gameMethod, level }) => {
         
         
     }, [url])
+
+    console.log("questions:");
+    console.log(questions);
+    console.log(multiplier);
+
     
 
     return(
