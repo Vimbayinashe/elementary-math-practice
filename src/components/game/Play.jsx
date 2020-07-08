@@ -61,10 +61,6 @@ const Play = ({ gameMethod, level }) => {
 
     let errorMessage = multiplier ? '': 'We are currently having trouble loading your questions.'
 
-    // function increaseIndex () {
-    //     if(index < (questions.length-1) ) return setIndex(0) 
-    // } 
-
 
     return(
         <section>
@@ -87,7 +83,8 @@ const Play = ({ gameMethod, level }) => {
                 </div>
             </div>
 
-            <div className="answer-buttons">
+            {/* <div className="answer-buttons"> */}
+            <div className="navigation-buttons">
                 <button className={index>0 ? 'play-buttons' : 'hidden'} 
                     onClick={()=>setIndex(index-1)} >
                     Previous

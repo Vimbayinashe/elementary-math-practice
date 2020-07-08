@@ -30,7 +30,18 @@
 
 /* Play component */
 .answer-buttons {
+    display: flex;
+    flex-wrap: wrap;
     margin: 1em;
+}
+
+.answer-buttons button {
+    border: solid 5px rgb(59, 148, 59);
+    border-radius: 10px;
+    font-size: 2em;
+    font-weight: 600;
+    height: 2.5em;
+    width: 2.5em;
 }
 
 .questions {
@@ -43,19 +54,27 @@
 
 .play-buttons {
     background-color: rgb(59, 148, 59);
-    /* border: solid 5px rgb(59, 148, 59); */
     border-radius: 10px;
-    font-size: 2em;
-    font-weight: 600;
+    font-size: 1.5em;
+    /* font-weight: 600; */
     height: 2em;
-    width: 3em;
+    padding: 0.5em;
+    margin: 1.5em;
+    width: 5em;
 }
 
 
-.play-buttons:focus {
+.play-buttons:hover {
     background-color: rgb(174, 238, 174);
     border: solid 5px rgb(59, 148, 59);
 }
+
+.navigation-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 
 
 /* Media Queries */

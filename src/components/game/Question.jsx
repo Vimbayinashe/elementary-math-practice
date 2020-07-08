@@ -9,21 +9,23 @@ const Question = ({ qn, multiplier, setAnswer}) => {
         multiplier * (qn + 1) 
     ]
 
-    useEffect(() => {
+    // useEffect(() => {
         shuffleArray(answers);
-    }, [answers])
+    // }, [answers])
 
     let JSXList = answers.map( (ans, index) => (
         <button key={index} onClick={()=>setAnswer(ans)}> 
             { ans } 
         </button>));
 
+    shuffleArray(JSXList);
+
 
     return(
         <article>
             <div className="questions"> { qn} &times; {multiplier} </div>
             <h3>Answer:</h3>
-            <div className="level-buttons">
+            <div className="answer-buttons">
                 { JSXList }
             </div>
         </article>
