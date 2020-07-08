@@ -1,16 +1,21 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const Question = ({ qn, multiplier, setAnswer}) => {
 
-    let answers = [
-        multiplier * qn ,
-        multiplier * (qn - 1),
-        multiplier * (qn + 2),
-        multiplier * (qn + 1) 
-    ]
-
+    const [answers, setAnswers] = useState('');
     // useEffect(() => {
-        shuffleArray(answers);
+
+        let unshuffledAnswers = [
+            multiplier * qn ,
+            multiplier * (qn - 1),
+            multiplier * (qn + 2),
+            multiplier * (qn + 1) 
+        ]
+
+        shuffleArray(unshuffledAnswers);
+
+        setAnswers(unshuffledAnswers);
+
     // }, [answers])
 
     let JSXList = answers.map( (ans, index) => (
@@ -18,7 +23,8 @@ const Question = ({ qn, multiplier, setAnswer}) => {
             { ans } 
         </button>));
 
-    shuffleArray(JSXList);
+    // shuffleArray(JSXList);
+    
 
 
     return(
