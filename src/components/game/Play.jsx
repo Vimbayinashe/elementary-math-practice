@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from 'react';
- import { useHistory } from 'react-router-dom';
- import axios from 'axios';
+import { useHistory } from 'react-router-dom';
+import axios from 'axios';
+import Question from './Question';
+import './Level.css';
+
 
 const Play = ({ gameMethod, level }) => {
 
     const history = useHistory();
     const [questions, setQuestions] = useState([]);
     const [multiplier, setMultiplier] = useState('');
+    const [index, setIndex] = useState('');
+    const [answer, setAnswer] = useState("");
 
     // console.log('Play: ', gameMethod, level);
 
@@ -54,7 +59,12 @@ const Play = ({ gameMethod, level }) => {
     // console.log(questions);
     // console.log(multiplier);
 
-    
+    let errorMessage = multiplier ? '': 'We are currently having trouble loading your questions.'
+
+    // function increaseIndex () {
+    //     if(index < (questions.length-1) ) return setIndex(0) 
+    // } 
+
 
     return(
         <section>
@@ -62,8 +72,27 @@ const Play = ({ gameMethod, level }) => {
                 (gameMethod && level) ? '' : renderRedirect()
             }
             <h2>Play</h2>
-            <p>Method: { gameMethod } and level: {level}.</p>
-            <p>{questions}</p>
+            <p>{errorMessage}</p>
+            <div>
+                <span>{ index + 1 } </span>
+                <div>
+                    <Question qn={index} 
+                        multiplier={multiplier}
+                        setAnswer={setAnswer}/>
+                </div>
+            </div>
+
+            <div>
+                <button className={index>0 ? '' : 'hidden'} 
+                    onClick={()=>setIndex(index-1)} >
+                    Previous
+                </button>
+                <button className={index < (questions.length - 2) ? '' : 'hidden'} 
+                    onClick={()=>setIndex(index+1)} >
+                    Next
+                </button> 
+                  {/* index >= 9 ? index = 0 : index + 1 */}
+            </div>
 
         </section>
     )
