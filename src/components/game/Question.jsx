@@ -20,7 +20,7 @@ const Question = ({ qn, multiplier, setAnswer}) => {
     return(
         <article>
             <div> { qn} &times; {multiplier} </div>
-            <div>
+            <div className="level-buttons">
                 <h3>Answer:</h3>
                 { JSXList }
             </div>

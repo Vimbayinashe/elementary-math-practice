@@ -76,7 +76,7 @@ const Play = ({ gameMethod, level }) => {
             <div>
                 <span>{ index + 1 } </span>
                 <div>
-                    <Question qn={index} 
+                    <Question qn={questions[index]} 
                         multiplier={multiplier}
                         setAnswer={setAnswer}/>
                 </div>
