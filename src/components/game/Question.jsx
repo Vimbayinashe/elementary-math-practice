@@ -13,9 +13,9 @@ const Question = ({ qn, multiplier, setAnswer}) => {
         shuffleArray(answers)
     }, [answers])
 
-    // useEffect(() => {
-    //     shuffleArray(answers);
-    // })
+            // useEffect(() => {
+            //     shuffleArray(answers);
+            // }, [answers])
 
     let JSXList = answers.map( (ans, index) => (
         <button key={index} onClick={()=>setAnswer(ans)}> 
