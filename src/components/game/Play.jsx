@@ -10,7 +10,7 @@ const Play = ({ gameMethod, level }) => {
     const history = useHistory();
     const [questions, setQuestions] = useState([]);
     const [multiplier, setMultiplier] = useState('');
-    const [index, setIndex] = useState('');
+    const [index, setIndex] = useState(0);
     const [answer, setAnswer] = useState("");
 
     // console.log('Play: ', gameMethod, level);
@@ -74,20 +74,25 @@ const Play = ({ gameMethod, level }) => {
             <h2>Play</h2>
             <p>{errorMessage}</p>
             <div>
-                <span>{ index + 1 }. </span>
+                <h3>{ index + 1 }. </h3>
                 <div>
-                    <Question qn={questions[index]} 
+                    {
+                        questions.length > 0 
+                        ? 
+                        <Question qn={questions[index]} 
                         multiplier={multiplier}
                         setAnswer={setAnswer}/>
+                        : <p className="questions">Your questions are loading'</p>
+                    }
                 </div>
             </div>
 
             <div className="answer-buttons">
-                <button className={index>0 ? '' : 'hidden'} 
+                <button className={index>0 ? 'play-buttons' : 'hidden'} 
                     onClick={()=>setIndex(index-1)} >
                     Previous
                 </button>
-                <button className={index < (questions.length - 2) ? '' : 'hidden'} 
+                <button className={index < (questions.length - 1) ? 'play-buttons' : 'hidden'} 
                     onClick={()=>setIndex(index+1)} >
                     Next
                 </button> 
