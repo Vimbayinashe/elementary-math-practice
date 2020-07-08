@@ -53,7 +53,7 @@ const Play = ({ gameMethod, level }) => {
         if(gameMethod && level) fetchQuestions();
         
         
-    }, [url])
+    }, [gameMethod, level, url])
 
     // console.log("questions:");
     // console.log(questions);

@@ -1,6 +1,8 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 
 const Question = ({ qn, multiplier, setAnswer}) => {
+
+    const [shuffledAnswers, setShuffledAnswers] = useState([]);
 
     let answers = [
             multiplier * qn ,
@@ -10,14 +12,16 @@ const Question = ({ qn, multiplier, setAnswer}) => {
         ]
     
     useMemo(() => {
-        shuffleArray(answers)
+        shuffleArray(answers);
+        setShuffledAnswers(answers);
+
     }, [answers])
 
             // useEffect(() => {
             //     shuffleArray(answers);
             // }, [answers])
 
-    let JSXList = answers.map( (ans, index) => (
+    let JSXList = shuffledAnswers.map( (ans, index) => (
         <button key={index} onClick={()=>setAnswer(ans)}> 
             { ans } 
         </button>));
