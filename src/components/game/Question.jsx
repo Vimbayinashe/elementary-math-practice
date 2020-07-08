@@ -3,15 +3,15 @@ import React from 'react';
 const Question = ({ qn, multiplier, setAnswer}) => {
 
 
-    let answers = shuffleArray([
+    let answers = [
             multiplier * qn ,
             multiplier * (qn - 1),
             multiplier * (qn + 2),
             multiplier * (qn + 1) 
-        ])
+        ]
     
 
-    // shuffleArray(answers);
+    shuffleArray(answers);
 
     let JSXList = answers.map( (ans, index) => (
         <button key={index} onClick={()=>setAnswer(ans)}> 
@@ -38,4 +38,6 @@ function shuffleArray(array) {
         const j = Math.floor(Math.random() * (i + 1));
         [array[i], array[j]] = [array[j], array[i]];
     }
+
+    return array;
 }
