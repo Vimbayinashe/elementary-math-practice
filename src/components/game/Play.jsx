@@ -8,7 +8,7 @@ const Play = ({ gameMethod, level }) => {
     const [questions, setQuestions] = useState([]);
     const [multiplier, setMultiplier] = useState('');
 
-    console.log('Play: ', gameMethod, level);
+    // console.log('Play: ', gameMethod, level);
 
     let renderRedirect = () => {
         return history.push(`/game`);
@@ -18,7 +18,7 @@ const Play = ({ gameMethod, level }) => {
 
 
     useEffect(() =>{
-        console.log('fetching in Play');
+        // console.log('fetching in Play');
 
 
         let fetchQuestions = async () => {
@@ -27,9 +27,9 @@ const Play = ({ gameMethod, level }) => {
 
             try {
                 const response = await axios.get(url);
-                console.log(response);
+                // console.log(response);
                 const data = await response.data;
-                console.log(data);
+                // console.log(data);
                 // const json = await response.json();
                 // console.log(json);
 
@@ -50,9 +50,9 @@ const Play = ({ gameMethod, level }) => {
         
     }, [url])
 
-    console.log("questions:");
-    console.log(questions);
-    console.log(multiplier);
+    // console.log("questions:");
+    // console.log(questions);
+    // console.log(multiplier);
 
     
 
