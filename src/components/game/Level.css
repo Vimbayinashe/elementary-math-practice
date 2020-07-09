@@ -46,10 +46,6 @@
     width: 2.5em;
 }
 
-.answer-buttons button:focus {
-    background-color: rgb(85, 212, 98);
-    /* box-shadow: 5px 6px 12px 1px rgba(0,0,0,0.51); */
-}
 
 .questions {
     /* background-color: lightsalmon ; */
