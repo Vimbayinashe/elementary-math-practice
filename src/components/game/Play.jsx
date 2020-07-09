@@ -11,9 +11,9 @@ const Play = ({ gameMethod, level }) => {
     const [questions, setQuestions] = useState([]);
     const [multiplier, setMultiplier] = useState('');
     const [index, setIndex] = useState(0);
-    const [answer, setAnswer] = useState([]);
+    const [selectedAnswers, setSelectedAnswer] = useState([]);
 
-    console.log('answer: ', answer);
+    console.log('selectedAnswers: ', selectedAnswers);
 
     let renderRedirect = () => {
         return history.push(`/game`);
@@ -56,13 +56,13 @@ const Play = ({ gameMethod, level }) => {
     const answerClicked = (ans, qn) => {
         console.log('current answer: ', ans);
 
-        setAnswer([...ans, {
+        setSelectedAnswer([...selectedAnswers, {
             id: index + 1,
             qn,
             ans
         }]);
 
-        console.log(`Answer at index ${index+1}: ${answer}`);
+        console.log(`Answer at index ${index+1}: ${selectedAnswers}`);
 
     }
 
