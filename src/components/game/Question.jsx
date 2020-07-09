@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Question = ({ qn, multiplier, setAnswer}) => {
+const Question = ({ qn, multiplier, answerClicked}) => {
 
 
     let answers = [
@@ -10,11 +10,11 @@ const Question = ({ qn, multiplier, setAnswer}) => {
             multiplier * (qn + 1) 
         ]
     
-
+    // Answers still jumping around on the screen when clicked
     shuffleArray(answers);
 
     let JSXList = answers.map( (ans, index) => (
-        <button key={index} onClick={()=>setAnswer(ans)}> 
+        <button key={index} onClick={answerClicked(ans, qn)}> 
             { ans } 
         </button>));
 

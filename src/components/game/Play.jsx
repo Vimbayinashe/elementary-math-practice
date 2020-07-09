@@ -11,7 +11,7 @@ const Play = ({ gameMethod, level }) => {
     const [questions, setQuestions] = useState([]);
     const [multiplier, setMultiplier] = useState('');
     const [index, setIndex] = useState(0);
-    const [answer, setAnswer] = useState("");
+    const [answer, setAnswer] = useState([]);
 
     console.log('answer: ', answer);
 
@@ -52,6 +52,20 @@ const Play = ({ gameMethod, level }) => {
 
     let errorMessage = multiplier ? '': 'We are currently having trouble loading your questions.'
 
+    
+    const answerClicked = (ans, qn) => {
+        console.log('current answer: ', ans);
+
+        setAnswer([...ans, {
+            id: index + 1,
+            qn,
+            ans
+        }]);
+
+        console.log(`Answer at index ${index+1}: ${answer}`);
+
+    }
+
 
     return(
         <section>
@@ -68,7 +82,7 @@ const Play = ({ gameMethod, level }) => {
                         ? 
                         <Question qn={questions[index]} 
                         multiplier={multiplier}
-                        setAnswer={setAnswer}/>
+                        answerClicked={answerClicked}/>
                         : <p className="questions">Your questions are loading'</p>
                     }
                 </div>
