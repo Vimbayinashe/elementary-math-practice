@@ -62,7 +62,9 @@ const Play = ({ gameMethod, level }) => {
             ans
         }]);
 
-        return setIndex(index+1);
+        return setTimeout(()=>{
+            setIndex(index+1);
+        }, 2000) 
     }
 
 
