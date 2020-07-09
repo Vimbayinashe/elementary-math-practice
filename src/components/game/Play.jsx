@@ -53,12 +53,12 @@ const Play = ({ gameMethod, level }) => {
     let errorMessage = multiplier ? '': 'We are currently having trouble loading your questions.'
 
     
-    const answerClicked = (ans, qn) => {
+    const answerClicked = (ans) => {
         console.log('current answer: ', ans);
 
         setSelectedAnswer([...selectedAnswers, {
             id: index + 1,
-            qn,
+            qn: questions[index],
             ans
         }]);
 
