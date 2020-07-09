@@ -14,7 +14,7 @@ const Question = ({ qn, multiplier, answerClicked}) => {
     shuffleArray(answers);
 
     let JSXList = answers.map( (ans, index) => (
-        <button key={index} onClick={answerClicked}> 
+        <button key={index} onClick={(ans, qn)=>answerClicked(ans, qn)}> 
             { ans } 
         </button>));
 
