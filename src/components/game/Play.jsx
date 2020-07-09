@@ -62,8 +62,7 @@ const Play = ({ gameMethod, level }) => {
             ans
         }]);
 
-        console.log(`Answer at index ${index+1}: ${selectedAnswers}`);
-
+        return setIndex(index+1);
     }
 
 
