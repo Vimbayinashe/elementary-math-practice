@@ -73,6 +73,10 @@
     border: solid 3px rgb(59, 148, 59);
 }
 
+.play-buttons:focus {
+    background-color: rgb(59, 148, 59);
+}
+
 .navigation-buttons {
     display: flex;
     flex-direction: row;
