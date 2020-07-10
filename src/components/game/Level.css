@@ -73,7 +73,7 @@
     border: solid 3px rgb(59, 148, 59);
 }
 
-.play-buttons:focus {
+.play-buttons:hover {
     background-color: rgb(59, 148, 59);
 }
 

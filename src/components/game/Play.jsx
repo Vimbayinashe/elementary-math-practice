@@ -14,8 +14,6 @@ const Play = ({ gameMethod, level }) => {
     const [index, setIndex] = useState(0);
     const [selectedAnswers, setSelectedAnswer] = useState([]);
 
-    console.log(index)
-
     let renderRedirect = () => {
         return history.push(`/game`);
     }
