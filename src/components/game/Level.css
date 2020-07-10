@@ -56,11 +56,11 @@
     padding: 0.5em;
     width: 35vw;
 }
-
-/* .questions>span{
+/* 
+.questions>span{
     font-size: 2em;
-    /* font-weight: bold; */
-    margin-right: 0.4em;
+    font-weight: bold;
+    margin-right: 0.25em;
 } */
 
 .play-buttons {
