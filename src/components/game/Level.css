@@ -57,11 +57,11 @@
     width: 35vw;
 }
 
-.questions>span{
+/* .questions>span{
     font-size: 2em;
     /* font-weight: bold; */
     margin-right: 0.4em;
-}
+} */
 
 .play-buttons {
     background-color: rgb(59, 148, 59);
