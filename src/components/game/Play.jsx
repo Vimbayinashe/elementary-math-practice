@@ -35,7 +35,6 @@ const Play = ({ gameMethod, level }) => {
                 setQuestions(data.questions);
                 setMultiplier(data.multiplier);
 
-                
                 return response;
 
 
@@ -46,7 +45,6 @@ const Play = ({ gameMethod, level }) => {
 
         if(gameMethod && level) fetchQuestions();
         
-        
     }, [gameMethod, level, url])
 
 
@@ -56,15 +54,29 @@ const Play = ({ gameMethod, level }) => {
     const answerClicked = (ans) => {
         console.log('current answer: ', ans);
 
-        setSelectedAnswer([...selectedAnswers, {
-            id: index + 1,
-            qn: questions[index],
-            ans
-        }]);
+        // check if ans.id exists
+        if (selectedAnswers.some( answer => answer.id === ans.id)) {
+            
+            // if true set updated answers
+            let updatedAnswers = selectedAnswers.map(item => {
+                if(item.id === ans.id) return ans;
+                else return item;
+            });
+
+            setSelectedAnswer([...updatedAnswers]);
+
+        } else {
+            // else set the below
+            setSelectedAnswer([...selectedAnswers, {
+                id: index + 1,
+                qn: questions[index],
+                ans
+            }]);
+        }
 
         return setTimeout(()=>{
-            setIndex(index+1);
-        }, 2000) 
+                    setIndex(index+1);
+                }, 2000) 
     }
 
 
@@ -78,14 +90,12 @@ const Play = ({ gameMethod, level }) => {
             <div>
                 <h3>{ index + 1 }. </h3>
                 <div>
-                    {
-                        questions.length > 0 
+                    { questions.length > 0 
                         ? 
                         <Question qn={questions[index]} 
                         multiplier={multiplier}
                         answerClicked={answerClicked}/>
-                        : <p className="questions">Your questions are loading'</p>
-                    }
+                        : <p className="questions">Your questions are loading'</p> }
                 </div>
             </div>
 
