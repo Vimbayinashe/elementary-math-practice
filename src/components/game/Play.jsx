@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import Question from './Question';
+import Navigation from './Navigation';
 import './Level.css';
 
 
@@ -13,7 +14,6 @@ const Play = ({ gameMethod, level }) => {
     const [index, setIndex] = useState(0);
     const [selectedAnswers, setSelectedAnswer] = useState([]);
 
-    console.log('selectedAnswers: ', selectedAnswers);
 
     let renderRedirect = () => {
         return history.push(`/game`);
@@ -21,27 +21,20 @@ const Play = ({ gameMethod, level }) => {
     
     let url = `/questions/${gameMethod}/${level}/`;
 
-
     useEffect(() =>{
-
         let fetchQuestions = async () => {
-
             console.log(url);
-
             try {
                 const response = await axios.get(url);
                 const data = await response.data;
-
                 setQuestions(data.questions);
                 setMultiplier(data.multiplier);
 
                 return response;
-
             } catch (error) {
                 console.error(error);
             }
         }
-
         if(gameMethod && level) fetchQuestions();
         
     }, [gameMethod, level, url])
@@ -51,8 +44,6 @@ const Play = ({ gameMethod, level }) => {
 
     
     const answerClicked = (ans) => {
-        console.log('current answer: ', ans);
-
         // check if ans.id exists
         if (selectedAnswers.some( answer => answer.id === (index + 1))) {
             
@@ -81,7 +72,7 @@ const Play = ({ gameMethod, level }) => {
 
         return setTimeout(()=>{
                     setIndex(index+1);
-                }, 2000) 
+                }, 1500) 
     }
 
 
@@ -96,13 +87,17 @@ const Play = ({ gameMethod, level }) => {
                     { questions.length > 0 
                         ? 
                         <Question qn={questions[index]} 
-                        multiplier={multiplier}
-                        answerClicked={answerClicked}/>
+                            multiplier={multiplier}
+                            answerClicked={answerClicked}/>
                         : <p className="questions">Your questions are loading'</p> }
                 </div>
             </div>
 
-            <div className="navigation-buttons">
+            <Navigation index={index} 
+                setIndex={setIndex}
+                questions={questions}/>
+
+            {/* <div className="navigation-buttons">
                 <button className={index>0 ? 'play-buttons' : 'hidden'} 
                     onClick={()=>setIndex(index-1)} >
                     Previous
@@ -111,7 +106,7 @@ const Play = ({ gameMethod, level }) => {
                     onClick={()=>setIndex(index+1)} >
                     Next
                 </button> 
-            </div>
+            </div> */}
 
         </section>
     )
