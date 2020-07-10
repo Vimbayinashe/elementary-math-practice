@@ -37,7 +37,6 @@ const Play = ({ gameMethod, level }) => {
 
                 return response;
 
-
             } catch (error) {
                 console.error(error);
             }
@@ -59,7 +58,13 @@ const Play = ({ gameMethod, level }) => {
             
             // if true set updated answers
             let updatedAnswers = selectedAnswers.map(item => {
-                if(item.id === (index + 1)) return ans;
+                if(item.id === (index + 1)) {
+                    return  {
+                                id: index + 1,
+                                qn: questions[index],
+                                ans
+                            };
+                } 
                 else return item;
             });
 
@@ -82,9 +87,7 @@ const Play = ({ gameMethod, level }) => {
 
     return(
         <section>
-            {
-                (gameMethod && level) ? '' : renderRedirect()
-            }
+            { (gameMethod && level) ? '' : renderRedirect() }
             <h2>Play</h2>
             <p>{errorMessage}</p>
             <div>
