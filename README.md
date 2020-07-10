@@ -4,8 +4,9 @@ This app allows someone learning elementary mathematics to practice a chosen tec
 and at a chosen difficulty level and review their previous performance.
 ``````
 
-## This app is an opportunity for me to test new frameworks and skills, namely:
-- Ionic
+## This fullstack app is a personal project for me to practice and improve working with the following:
+- React
+- Express
 - MySQL
-- Axios
+- Deployment to Heroku
 
