@@ -14,6 +14,7 @@ const Play = ({ gameMethod, level }) => {
     const [index, setIndex] = useState(0);
     const [selectedAnswers, setSelectedAnswer] = useState([]);
 
+    console.log(index)
 
     let renderRedirect = () => {
         return history.push(`/game`);
@@ -43,7 +44,6 @@ const Play = ({ gameMethod, level }) => {
     const answerClicked = (ans) => {
         // check if ans.id exists
         if (selectedAnswers.some( answer => answer.id === (index + 1))) {
-            
             // if true set updated answers
             let updatedAnswers = selectedAnswers.map(item => {
                 if(item.id === (index + 1)) {
@@ -66,7 +66,6 @@ const Play = ({ gameMethod, level }) => {
                         ans
                     }]);
         }
-
     }
 
 
