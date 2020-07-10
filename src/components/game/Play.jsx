@@ -39,9 +39,6 @@ const Play = ({ gameMethod, level }) => {
         
     }, [gameMethod, level, url])
 
-
-    let errorMessage = multiplier ? '': 'We are currently having trouble loading your questions.'
-
     
     const answerClicked = (ans) => {
         // check if ans.id exists
@@ -59,20 +56,17 @@ const Play = ({ gameMethod, level }) => {
                 else return item;
             });
 
-            setSelectedAnswer([...updatedAnswers]);
+            return setSelectedAnswer([...updatedAnswers]);
 
         } else {
             // else set the below
-            setSelectedAnswer([...selectedAnswers, {
-                id: index + 1,
-                qn: questions[index],
-                ans
-            }]);
+            return  setSelectedAnswer([...selectedAnswers, {
+                        id: index + 1,
+                        qn: questions[index],
+                        ans
+                    }]);
         }
 
-        return setTimeout(()=>{
-                    setIndex(index+1);
-                }, 1500) 
     }
 
 
@@ -80,7 +74,6 @@ const Play = ({ gameMethod, level }) => {
         <section>
             { (gameMethod && level) ? '' : renderRedirect() }
             <h2>Play</h2>
-            <p>{errorMessage}</p>
             <div>
                 <h3>{ index + 1 }. </h3>
                 <div>
@@ -96,17 +89,6 @@ const Play = ({ gameMethod, level }) => {
             <Navigation index={index} 
                 setIndex={setIndex}
                 questions={questions}/>
-
-            {/* <div className="navigation-buttons">
-                <button className={index>0 ? 'play-buttons' : 'hidden'} 
-                    onClick={()=>setIndex(index-1)} >
-                    Previous
-                </button>
-                <button className={index < (questions.length - 1) ? 'play-buttons' : 'hidden'} 
-                    onClick={()=>setIndex(index+1)} >
-                    Next
-                </button> 
-            </div> */}
 
         </section>
     )

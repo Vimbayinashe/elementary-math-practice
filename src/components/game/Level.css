@@ -50,9 +50,10 @@
 .questions {
     /* background-color: lightsalmon ; */
     font-size: 2em;
+    font-weight: bold;
     margin: auto;
     padding: 0.5em;
-    width: 10em;
+    width: 25vw;
 }
 
 .play-buttons {
