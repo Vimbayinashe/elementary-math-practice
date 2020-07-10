@@ -10,7 +10,17 @@ const Navigation = ({ index, setIndex, questions }) => {
                     onClick={()=>setIndex(index-1)} >
                     Previous
                 </button>
-                <button className={index < (questions.length - 1) ? 'play-buttons' : 'hidden'} 
+                {
+                    index < (questions.length - 1) ?
+                    <button className={index < (questions.length - 1) ? 'play-buttons' : 'hidden'} 
+                        onClick={()=>setIndex(index+1)} >
+                        Next
+                    </button> 
+                    : <button className={index < (questions.length - 1) ? 'hidden' : 'play-buttons'} >
+                        Done
+                    </button> 
+                }
+                {/* <button className={index < (questions.length - 1) ? 'play-buttons' : 'hidden'} 
                     onClick={()=>setIndex(index+1)} >
                     Next
                 </button> 
@@ -18,7 +28,7 @@ const Navigation = ({ index, setIndex, questions }) => {
             <div className="navigation-buttons submit-buttons">
                 <button className={index < (questions.length - 1) ? 'hidden' : 'play-buttons'} >
                     Done
-                </button> 
+                </button>  */}
             </div>
 
         </section>
