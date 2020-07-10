@@ -55,11 +55,11 @@ const Play = ({ gameMethod, level }) => {
         console.log('current answer: ', ans);
 
         // check if ans.id exists
-        if (selectedAnswers.some( answer => answer.id === ans.id)) {
+        if (selectedAnswers.some( answer => answer.id === (index + 1))) {
             
             // if true set updated answers
             let updatedAnswers = selectedAnswers.map(item => {
-                if(item.id === ans.id) return ans;
+                if(item.id === (index + 1)) return ans;
                 else return item;
             });
 
