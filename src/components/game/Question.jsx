@@ -22,7 +22,7 @@ const Question = ({ index, qn, multiplier, answerClicked}) => {
     return(
         <article>
             <div className="questions"> 
-                <span>{ index + 1 }. </span> { qn} &times; {multiplier} 
+                <span>({ index + 1 }.) </span> { qn} &times; {multiplier} 
             </div>
             <h3>Answer:</h3>
             <div className="answer-buttons">
