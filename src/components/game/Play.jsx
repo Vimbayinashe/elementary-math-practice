@@ -70,13 +70,14 @@ const Play = ({ gameMethod, level }) => {
     return(
         <section>
             { (gameMethod && level) ? '' : renderRedirect() }
-            <h2>Play</h2>
+            {/* <h2>Play</h2> */}
             <div>
-                <h3>{ index + 1 }. </h3>
+                {/* <h3>{ index + 1 }. </h3> */}
                 <div>
                     { questions.length > 0 
                         ? 
-                        <Question qn={questions[index]} 
+                        <Question index={index} 
+                            qn={questions[index]} 
                             multiplier={multiplier}
                             answerClicked={answerClicked}/>
                         : <p className="questions">Your questions are loading'</p> }

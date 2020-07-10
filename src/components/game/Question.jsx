@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Question = ({ qn, multiplier, answerClicked}) => {
+const Question = ({ index, qn, multiplier, answerClicked}) => {
 
 
     let answers = [
@@ -21,7 +21,9 @@ const Question = ({ qn, multiplier, answerClicked}) => {
 
     return(
         <article>
-            <div className="questions"> { qn} &times; {multiplier} </div>
+            <div className="questions"> 
+                <span>{ index + 1 }. </span> { qn} &times; {multiplier} 
+            </div>
             <h3>Answer:</h3>
             <div className="answer-buttons">
                 { JSXList }

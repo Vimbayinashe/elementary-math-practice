@@ -43,6 +43,7 @@
     font-weight: 600;
     height: 2.5em;
     margin: 1em;
+    /* margin: 0.25em 1em; */
     width: 2.5em;
 }
 
@@ -54,6 +55,12 @@
     margin: auto;
     padding: 0.5em;
     width: 35vw;
+}
+
+.questions>span{
+    font-size: 2em;
+    /* font-weight: bold; */
+    margin-right: 0.4em;
 }
 
 .play-buttons {
