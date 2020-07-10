@@ -15,7 +15,12 @@ const Navigation = ({ index, setIndex, questions }) => {
                     Next
                 </button> 
             </div>
-            
+            <div className="navigation-buttons submit-button">
+                <button className={index = (questions.length - 1) ? 'play-buttons' : 'hidden'} >
+                    Done
+                </button> 
+            </div>
+
         </section>
     )
 }
