@@ -41,11 +41,17 @@ const Play = ({ gameMethod, level }) => {
 
     const postAnswers = async () => {
         let postUrl = `/answers/${gameMethod}`;
+        console.log('Posting answers!')
+        console.log({
+            userId: 12,
+            multiplier,
+            answers: selectedAnswers,
+        });
         try {
             const response = await axios.post(postUrl, {
                                 userId: 12,
                                 multiplier,
-                                selectedAnswers,
+                                answers: selectedAnswers,
                             });
             const data = await response.data;
             console.log(response)
