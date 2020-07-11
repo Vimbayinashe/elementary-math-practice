@@ -63,7 +63,7 @@
     transition: 2s;
 }
 
-.dropdown-menu li:hover {
+.dropdown-menu li:hover, .dropdown-menu a:hover {
     color: rgb(11, 122, 22);
     background-color: rgb(214, 248, 214);
 }
