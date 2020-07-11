@@ -13,7 +13,10 @@ const Play = ({ gameMethod, level }) => {
     const [multiplier, setMultiplier] = useState('');
     const [index, setIndex] = useState(0);
     const [selectedAnswers, setSelectedAnswer] = useState([]);
-    const [results, setResults] = useState('');
+    const [results, setResults] = useState({});
+
+    console.log("results");
+    console.log(results);
 
     let renderRedirect = () => {
         return history.push(`/game`);
@@ -55,11 +58,11 @@ const Play = ({ gameMethod, level }) => {
                                 answers: selectedAnswers,
                             });
 
-            console.log(response)
+            console.log(response);
             setResults(response.data);
             console.log("response.data:");
             console.log(response.data);
-            console.log(results);
+            // console.log(results);
 
             return response;
             
