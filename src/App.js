@@ -10,6 +10,8 @@ function App() {
 
     const [level, setLevel] = useState('');
     const [gameMethod, setGameMethod] = useState('');
+    const [results, setResults] = useState({});
+
 
   return (
     <Router className="App">
@@ -32,7 +34,9 @@ function App() {
 
             <Route path="/play">
                 <Play gameMethod={gameMethod} 
-                    level={level}/>
+                    level={level}
+                    results={results}
+                    setResults={setResults}/>
             </Route>
 
             <Route exact path="/">

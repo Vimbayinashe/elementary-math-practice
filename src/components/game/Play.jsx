@@ -6,17 +6,14 @@ import Navigation from './Navigation';
 import './Level.css';
 
 
-const Play = ({ gameMethod, level }) => {
+const Play = ({ gameMethod, level, results, setResults }) => {
 
     const history = useHistory();
     const [questions, setQuestions] = useState([]);
     const [multiplier, setMultiplier] = useState('');
     const [index, setIndex] = useState(0);
     const [selectedAnswers, setSelectedAnswer] = useState([]);
-    const [results, setResults] = useState({});
 
-    console.log("results");
-    console.log(results);
 
     let renderRedirect = () => {
         return history.push(`/game`);
@@ -44,12 +41,7 @@ const Play = ({ gameMethod, level }) => {
 
     const postAnswers = async () => {
         let postUrl = `/answers/${gameMethod}`;
-        console.log('Posting answers!')
-        // console.log({
-        //     userId: 12,
-        //     multiplier,
-        //     answers: selectedAnswers,
-        // });
+
         try {
 
             const response = await axios.post(postUrl, {
@@ -57,12 +49,7 @@ const Play = ({ gameMethod, level }) => {
                                 multiplier,
                                 answers: selectedAnswers,
                             });
-
-            console.log(response);
             setResults(response.data);
-            console.log("response.data:");
-            console.log(response.data);
-            // console.log(results);
 
             return response;
             
@@ -103,9 +90,7 @@ const Play = ({ gameMethod, level }) => {
     return(
         <section>
             { (gameMethod && level) ? '' : renderRedirect() }
-            {/* <h2>Play</h2> */}
             <div>
-                {/* <h3>{ index + 1 }. </h3> */}
                 <div>
                     { questions.length > 0 
                         ? 
