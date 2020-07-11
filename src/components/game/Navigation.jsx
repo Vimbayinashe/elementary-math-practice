@@ -1,6 +1,20 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
+
 
 const Navigation = ({ index, setIndex, questions, postAnswers }) => {
+
+    const history = useHistory();
+
+    const renderRedirect = () => {
+        return history.push(`/results`);
+    }
+
+    const handleClick = () => {
+        postAnswers();
+        renderRedirect();
+    }
+
 
     return(
         <section>
@@ -17,7 +31,7 @@ const Navigation = ({ index, setIndex, questions, postAnswers }) => {
                         Next
                     </button> 
                     : <button className={index < (questions.length - 1) ? 'hidden' : 'play-buttons'} 
-                        onClick={postAnswers}>
+                        onClick={handleClick}>
                         Done
                     </button> 
                 }
