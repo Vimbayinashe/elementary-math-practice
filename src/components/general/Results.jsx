@@ -15,7 +15,7 @@ const Results = ({results}) => {
         <section className="results">
             {/* <h2>Results</h2> */}
             <div> {comment} </div>
-            <div>You answered {results.correct} out of {results.totalQuestions}!</div>
+            <div>You answered {results.correct} out of {results.totalQuestions} correct!</div>
             <button className="play"
                 onClick={renderRedirect}>
                 Play Again

@@ -87,6 +87,7 @@
     width: 6em;
 }
 
+
 h2, h3 {
     margin: 1em 2em 0.5em;
 }
@@ -109,7 +110,26 @@ h2, h3 {
 }
 
 
-/*  */
+/* Results Screen */
+
+.results {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1em;
+}
+
+.results > .play {
+    height: 3em;
+    margin: 1.5em 0;
+}
+
+.results > div {
+    font: normal bold 1.25em Arial;
+    margin: 1em;
+}
+
 
 
 

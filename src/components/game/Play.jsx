@@ -23,7 +23,7 @@ const Play = ({ gameMethod, level, results, setResults }) => {
 
     useEffect(() =>{
         let fetchQuestions = async () => {
-            console.log(url);
+
             try {
                 const response = await axios.get(url);
                 const data = await response.data;
