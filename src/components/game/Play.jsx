@@ -43,7 +43,7 @@ const Play = ({ gameMethod, level }) => {
         let postUrl = `/answers/${gameMethod}`;
         try {
             const response = await axios.post(postUrl, {
-                                userId: 2,
+                                userId: 12,
                                 multiplier,
                                 selectedAnswers,
                             });

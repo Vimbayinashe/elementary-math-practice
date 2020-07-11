@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Navigation = ({ index, setIndex, questions }) => {
+const Navigation = ({ index, setIndex, questions, postAnswers }) => {
 
     return(
         <section>
@@ -16,19 +16,12 @@ const Navigation = ({ index, setIndex, questions }) => {
                         onClick={()=>setIndex(index+1)} >
                         Next
                     </button> 
-                    : <button className={index < (questions.length - 1) ? 'hidden' : 'play-buttons'} >
+                    : <button className={index < (questions.length - 1) ? 'hidden' : 'play-buttons'} 
+                        onClick={postAnswers}>
                         Done
                     </button> 
                 }
-                {/* <button className={index < (questions.length - 1) ? 'play-buttons' : 'hidden'} 
-                    onClick={()=>setIndex(index+1)} >
-                    Next
-                </button> 
-            </div>
-            <div className="navigation-buttons submit-buttons">
-                <button className={index < (questions.length - 1) ? 'hidden' : 'play-buttons'} >
-                    Done
-                </button>  */}
+
             </div>
 
         </section>
