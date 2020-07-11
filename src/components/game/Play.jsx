@@ -39,6 +39,7 @@ const Play = ({ gameMethod, level, results, setResults }) => {
         
     }, [gameMethod, level, url])
 
+    
     const postAnswers = async () => {
         let postUrl = `/answers/${gameMethod}`;
 

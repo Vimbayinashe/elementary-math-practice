@@ -5,6 +5,7 @@ import Header from './components/home/Header';
 import Home from './components/home/Home';
 import SelectGame from './components/game/SelectGame';
 import Play from './components/game/Play';
+import Results from './components/general/Results';
 
 function App() {
 
@@ -37,6 +38,10 @@ function App() {
                     level={level}
                     results={results}
                     setResults={setResults}/>
+            </Route>
+
+            <Route path="/results">
+                <Results results={results}/>
             </Route>
 
             <Route exact path="/">
