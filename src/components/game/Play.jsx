@@ -13,6 +13,7 @@ const Play = ({ gameMethod, level }) => {
     const [multiplier, setMultiplier] = useState('');
     const [index, setIndex] = useState(0);
     const [selectedAnswers, setSelectedAnswer] = useState([]);
+    const [results, setResults] = useState('');
 
     let renderRedirect = () => {
         return history.push(`/game`);
@@ -37,6 +38,25 @@ const Play = ({ gameMethod, level }) => {
         if(gameMethod && level) fetchQuestions();
         
     }, [gameMethod, level, url])
+
+    const postAnswers = async () => {
+        let postUrl = `/answers/${gameMethod}`;
+        try {
+            const response = await axios.post(postUrl, {
+                                userId: 2,
+                                multiplier,
+                                selectedAnswers,
+                            });
+            const data = await response.data;
+            console.log(response)
+            setResults(data);
+            console.log(results);
+
+            return data;
+        } catch (error) {
+            console.error(error);
+        }
+    }
 
     
     const answerClicked = (ans) => {
@@ -86,7 +106,8 @@ const Play = ({ gameMethod, level }) => {
 
             <Navigation index={index} 
                 setIndex={setIndex}
-                questions={questions}/>
+                questions={questions}
+                postAnswers={postAnswers}/>
 
         </section>
     )
