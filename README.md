@@ -6,7 +6,7 @@ and at a chosen difficulty level and review their previous performance.
 
 
 ## This fullstack app is a personal project for me to practice and improve working with the following:
-- React App as a PWA
+- React App
 - Express
 - MySQL
 - Deployment to Heroku
